@@ -58,5 +58,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
-
 gem 'carrierwave'
+gem 'kaminari'
