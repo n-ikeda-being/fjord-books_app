@@ -1,5 +1,4 @@
-<h1>New Book</h1>
+<h1><%= t('views.books.new.title') %></h1>
 
 <%= render 'form', book: @book %>
-
-<%= link_to 'Back', books_path %>
+<%= link_to t('views.action.home'), books_path %>
