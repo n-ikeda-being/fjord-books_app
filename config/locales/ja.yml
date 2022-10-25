@@ -42,20 +42,19 @@ ja:
         memo: 概要
         author: 著者
         picture: 画像
-  views:
-    books:
-      index:
-        title: 一覧
-      new:
-        title: 新規作成
-      edit:
-        title: 編集
-    action:
-      show: 参照
-      edit: 編集
-      new: 新規作成
-      destroy: 削除
-      home: 一覧へ戻る
+  books:
+    index:
+      title: 一覧
+    new:
+      title: 新規作成
+    edit:
+      title: 編集
+  action:
+    show: 参照
+    edit: 編集
+    new: 新規作成
+    destroy: 削除
+    home: 一覧へ戻る
   helpers:
     submit:
       create: 登録
