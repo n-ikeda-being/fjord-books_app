@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 2022_10_27_005724) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.integer "following_id", null: false
+    t.integer "follower_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
+    t.index ["following_id"], name: "index_relationships_on_following_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
