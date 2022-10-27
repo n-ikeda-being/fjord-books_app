@@ -1,0 +1,13 @@
+<h2><%= t('users.show.followings') %></h2>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th>
+        <td><%= user.email %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to t('views.common.show'), user %></td><br>
+        <td><%= link_to t('views.common.back'), user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table><br>
