@@ -1,6 +1,16 @@
 <h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
 
 <p>
+  <strong><%= Report.human_attribute_name(:user_id) %>:</strong>
+  <%= @report.user_id %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:user_name) %>:</strong>
+  <%= @report.user.name %>
+</p>
+
+<p>
   <strong><%= Report.human_attribute_name(:title) %>:</strong>
   <%= @report.title %>
 </p>
@@ -8,6 +18,11 @@
 <p>
   <strong><%= Report.human_attribute_name(:memo) %>:</strong>
   <%= @report.memo %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
+  <%= l @report.created_at, format: :short %>
 </p>
 
 <%= link_to t('views.common.edit'), edit_report_path(@report) %> |

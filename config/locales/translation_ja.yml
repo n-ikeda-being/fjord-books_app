@@ -21,3 +21,5 @@ ja:
         title: タイトル
         memo: メモ
         created_at: 投稿日
+        user_id: 投稿者ID
+        user_name: 投稿者
