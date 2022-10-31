@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
         new_user_session_path # ログアウト後に遷移する画面
     end
 
-    def signed_in_root_path(_resource_or_scope)
-      books_path # アカウント編集後に遷移する画面
+    def signed_in_root_path(resource)
+      users_path # アカウント編集後に遷移する画面
     end
 
 end
