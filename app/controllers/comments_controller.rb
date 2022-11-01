@@ -3,11 +3,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    if @comment.save
-      redirect_to report_path(@comment.report)
-    else
-      redirect_to report_path(@comment.report)
-    end
+    comment.save
   end
 
   def destroy
