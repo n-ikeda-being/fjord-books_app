@@ -49,16 +49,25 @@
 <% end %>
 
 <h4><%= t('.comment_show') %></h4>
+<p>
+  <% if @comments.empty? %>
+    <%= t('.no_comment') %>
+  <% end %>
+</p>
+
 <% @comments.each do |comment| %>
-  <p>
+  <% if comment.user.name.empty? %>
+    <strong><%= Comment.human_attribute_name(:name) %>:</strong>
+    <%= comment.user.email %><br>
+  <% else %>
     <strong><%= Comment.human_attribute_name(:name) %>:</strong>
     <%= comment.user.name %><br>
+  <% end %>
     <strong><%= Comment.human_attribute_name(:content) %>:</strong>
     <%= comment.comment_content %><br>
     <strong><%= Comment.human_attribute_name(:created_at) %>:</strong>
     <%= l comment.created_at, format: :short %><br>
     <% if current_user.id == comment.user_id %>
-      <%= link_to t('views.common.destroy'), report_comment_path(comment.report.id, comment.id), method: :delete %>
+      <%= link_to t('views.common.destroy'), report_comment_path(comment.report.id, comment.id), method: :delete %><br><br>
     <% end %>
-  </p>
-<% end %>
+<% end %><br>

@@ -244,6 +244,7 @@ ja:
     show:
       comment_show: <コメント一覧>
       submit: 送信
+      no_comment: コメントはまだありません
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
