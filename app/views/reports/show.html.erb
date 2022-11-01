@@ -39,3 +39,24 @@
 <%= link_to t('views.common.edit'), edit_report_path(@report) %>
 <% end %>
 <%= link_to t('views.common.back'), reports_path %>
+<br><br>
+
+<% if user_signed_in? %>
+  <%= form_with model: [@report, @comment], local: true do |form| %>
+    <%= form.text_area :comment_content %>
+    <%= form.submit "送信" %>
+  <% end %>
+<% else %>
+  <strong><p>コメントの投稿には新規登録/ログインが必要です</p></strong>
+<% end %>
+
+<h4>＜コメント一覧＞</h4>
+<% @comments.each do |comment| %>
+  <p>
+    <strong><%= comment.user.name %>:</strong>
+    <%= comment.comment_content %>
+    <% if user_signed_in? && current_user.id == comment.user_id %>
+      <%= link_to "削除", report_comment_path(comment.report.id, comment.id), method: :delete %>
+    <% end %>
+  </p>
+<% end %>
