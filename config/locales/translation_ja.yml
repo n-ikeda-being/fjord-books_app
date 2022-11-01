@@ -25,3 +25,8 @@ ja:
         user_id: 投稿者ID
         user_name: 投稿者名
         user_email: 投稿者Eメール
+      comment:
+        name: 投稿者
+        content: 内容
+        created_at: 投稿日
+
