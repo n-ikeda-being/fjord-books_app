@@ -1,19 +1,27 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :set_comment, only: %i[show edit]
 
-  def create
-    @comment = Comment.new(comment_params)
-    comment.save
+  def new
+    @comment = Comment.new
   end
 
-  def destroy
-    comment = Comment.find_by(id: params[:id], report_id: params[:report_id])
-    comment.destroy
-    redirect_to report_path(comment.report)
+  def create
+    @comment = @commentable.comments.build(comment_params)
+    @comment.user_id = current_user.id
+    if @comment.save
+      redirect_to @commentable
+    else
+      render :new
+    end
   end
 
   private
+
+  def set_comment
+    @comment = @commentable.comment.find(params[:id])
+  end
+
   def comment_params
-    params.require(:comment).permit(:comment_content).merge(user_id: current_user.id, report_id: params[:report_id])
+    params.require(:comment).permit(:comment_content)
   end
 end

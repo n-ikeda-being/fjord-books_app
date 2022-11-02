@@ -36,38 +36,10 @@
 </p>
 
 <% if current_user.id == @report.user_id %>
-<%= link_to t('views.common.edit'), edit_report_path(@report) %>
+  <%= link_to t('views.common.edit'), edit_report_path(@report) %>
 <% end %>
 <%= link_to t('views.common.back'), reports_path %>
 <br><br>
 
-<% if user_signed_in? %>
-  <%= form_with model: [@report, @comment] do |form| %>
-    <%= form.text_area :comment_content %>
-    <%= form.submit t('.submit') %>
-  <% end %>
-<% end %>
-
-<h4><%= t('.comment_show') %></h4>
-<p>
-  <% if @comments.empty? %>
-    <%= t('.no_comment') %>
-  <% end %>
-</p>
-
-<% @comments.each do |comment| %>
-  <% if comment.user.name.empty? %>
-    <strong><%= Comment.human_attribute_name(:name) %>:</strong>
-    <%= comment.user.email %><br>
-  <% else %>
-    <strong><%= Comment.human_attribute_name(:name) %>:</strong>
-    <%= comment.user.name %><br>
-  <% end %>
-    <strong><%= Comment.human_attribute_name(:content) %>:</strong>
-    <%= comment.comment_content %><br>
-    <strong><%= Comment.human_attribute_name(:created_at) %>:</strong>
-    <%= l comment.created_at, format: :short %><br>
-    <% if current_user.id == comment.user_id %>
-      <%= link_to t('views.common.destroy'), report_comment_path(comment.report.id, comment.id), method: :delete %><br><br>
-    <% end %>
-<% end %><br>
+<%= render 'comments/form', commentable: @report, comment: Comment.new %>
+<%= render 'comments/index', commentable: @report, comment: @comments %>
