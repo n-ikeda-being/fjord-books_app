@@ -1,6 +1,6 @@
-class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[show edit]
+# frozen_string_literal: true
 
+class CommentsController < ApplicationController
   def new
     @comment = Comment.new
   end
@@ -16,10 +16,6 @@ class CommentsController < ApplicationController
   end
 
   private
-
-  def set_comment
-    @comment = @commentable.comment.find(params[:id])
-  end
 
   def comment_params
     params.require(:comment).permit(:comment_content)
