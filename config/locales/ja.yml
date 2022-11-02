@@ -219,6 +219,7 @@ ja:
       sign_out: ログアウト
       minimum_length: "%{length}文字以上"
       send: 送信
+      no_comment: コメントはまだありません
     pagination:
       first: '最初'
       last: '最後'
@@ -241,11 +242,6 @@ ja:
     followers:
       index:
         title: フォロワー
-  reports:
-    show:
-      comment_show: <コメント一覧>
-      submit: 送信
-      no_comment: コメントはまだありません
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
