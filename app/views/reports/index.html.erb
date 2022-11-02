@@ -13,7 +13,11 @@
   <tbody>
     <% @reports.each do |report| %>
       <tr>
+      <% if report.user.name.empty? %>
+        <td><%= report.user.email %></td>
+      <% else %>
         <td><%= report.user.name %></td>
+      <% end %>
         <td><%= report.title %></td>
         <td><%= report.memo %></td>
         <td><%= link_to t('views.common.show'), report %></td>
