@@ -61,7 +61,7 @@ gem 'net-pop'
 gem 'net-smtp'
 
 gem 'carrierwave'
-gem 'kaminari'
 gem 'devise'
 gem 'devise-i18n'
+gem 'kaminari'
 gem 'letter_opener_web'
