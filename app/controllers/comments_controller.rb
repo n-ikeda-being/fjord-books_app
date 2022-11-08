@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable
     else
-      render :new
+      redirect_back(fallback_location: root_path, notice: t('controllers.common.comment_error'))
     end
   end
 

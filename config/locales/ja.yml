@@ -247,6 +247,10 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+      Report_was_successfully_created: 日報を投稿しました
+      Report_was_successfully_updated: 日報を編集しました
+      Report_was_successfully_destroyed: 日報を削除しました
+      comment_error: コメントを投稿できませんでした
   relationships:
     create:
       notice: "フォローしました。"
