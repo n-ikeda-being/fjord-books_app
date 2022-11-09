@@ -56,7 +56,7 @@ class ReportsController < ApplicationController
 
   def check_user
     @report = Report.find(params[:id])
-    redirect_to reports_path unless current_user == @report.user
+    redirect_to reports_path, notice: t('controllers.common.cannot_edit') unless current_user == @report.user
   end
 
 end
