@@ -251,7 +251,7 @@ ja:
       Report_was_successfully_updated: 日報を編集しました
       Report_was_successfully_destroyed: 日報を削除しました
       comment_error: コメントを投稿できませんでした
-      cannot_edit: 投稿者以外は編集できません
+      cannot_edit: 投稿者以外は編集・削除できません
   relationships:
     create:
       notice: "フォローしました。"
