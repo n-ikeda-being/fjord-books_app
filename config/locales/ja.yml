@@ -217,8 +217,6 @@ ja:
       title_edit: 編集
       sign_out: ログアウト
       user_edit: アカウント編集
-    user:
-      characters_minimum: 文字以上 
     pagination:
       first: '最初'
       last: '最後'
