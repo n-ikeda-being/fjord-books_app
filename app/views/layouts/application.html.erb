@@ -7,6 +7,25 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <% if user_signed_in? %>
+      <ul>
+        <li>
+          <%= link_to Book.model_name.human, books_path %>
+        </li>
+        <li>
+          <%= link_to User.model_name.human, users_path %>
+        </li>
+        </ul>
+      <ul>
+        <li>
+          <%= link_to t('views.common.user_edit'), edit_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to t('views.common.sign_out'), destroy_user_session_path, method: :delete %>
+        </li>
+      </ul>
+    <% end %>
   </head>
 
   <body>
