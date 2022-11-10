@@ -216,11 +216,8 @@ ja:
       title_new: 新規作成
       title_edit: 編集
       sign_out: ログアウト
+      user_edit: アカウント編集
     user:
-      name: 名前
-      postcode: 郵便番号
-      address: 住所
-      profile: 自己紹介
       characters_minimum: 文字以上 
     pagination:
       first: '最初'
