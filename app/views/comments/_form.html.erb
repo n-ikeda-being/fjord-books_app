@@ -1,0 +1,10 @@
+<%= form_with model: [commentable, comment] do |form| %>
+  <div class="field">
+    <%= Comment.model_name.human %><br>
+    <%= form.text_area :comment_content, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit t('views.common.send') %>
+  </div>
+<% end %>

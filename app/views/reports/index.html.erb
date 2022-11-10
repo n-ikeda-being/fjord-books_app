@@ -1,0 +1,33 @@
+<h1><%= Report.model_name.human %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= Report.human_attribute_name(:user_name) %></th>
+      <th><%= Report.human_attribute_name(:title) %></th>
+      <th><%= Report.human_attribute_name(:memo) %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+      <% if report.user.name.empty? %>
+        <td><%= report.user.email %></td>
+      <% else %>
+        <td><%= report.user.name %></td>
+      <% end %>
+        <td><%= report.title %></td>
+        <td><%= report.memo %></td>
+        <td><%= link_to t('views.common.show'), report %></td>
+        <% if current_user.id == report.user_id %>
+        <td><%= link_to t('views.common.edit'), edit_report_path(report) %></td>
+        <td><%= link_to t('views.common.destroy'), report, method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+        <% end %>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to t('views.common.new'), new_report_path %>
