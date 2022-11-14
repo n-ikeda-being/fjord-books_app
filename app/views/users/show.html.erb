@@ -1,9 +1,9 @@
 <h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
 
 <%= t('.followings_count') %>
-<%= link_to @user.followings.count, user_followings_path(@user.id) %>
+<%= link_to @user.followings.count, followings_user_path(@user.id) %>
 <%= t('.followers_count') %>
-<%= link_to @user.followers.count, user_followers_path(@user.id) %><br><br>
+<%= link_to @user.followers.count, followers_user_path(@user.id) %><br><br>
 
 <% unless current_user == @user %>
   <% if current_user.following?(@user) %>
