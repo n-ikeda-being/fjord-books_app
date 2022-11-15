@@ -1,13 +1,2 @@
-<h2><%= t('users.show.followers') %></h2>
-<table>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <th>
-        <td><%= user.email %></td>
-        <td><%= user.name %></td>
-        <td><%= link_to t('views.common.show'), user_path(user) %></td><br>
-      </tr>
-    <% end %>
-  </tbody>
-</table><br>
+<h2> <%= t('users.show.followers') %> </h2>
+<%= render 'follow' %>
