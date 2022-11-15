@@ -1,2 +1,2 @@
 <h2> <%= t('users.show.followings') %> </h2>
-<%= render 'follow' %>
+<%= render partial: "follow", locals: {users: @users} %>
