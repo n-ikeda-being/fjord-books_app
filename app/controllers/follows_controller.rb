@@ -3,16 +3,14 @@
 class FollowsController < ApplicationController
   # フォローする
   def create
-    user = User.find(params[:followed_id])
-    current_user.follow(user)
-    redirect_to user
+    current_user.follow(params[:user_id])
+    redirect_to user_path(params[:user_id])
   end
 
   # アンフォロー
   def destroy
-    user = Follow.find(params[:id]).followed
-    current_user.unfollow(user)
-    redirect_to user
+    current_user.unfollow(params[:user_id])
+    redirect_to user_path(params[:user_id])
   end
 
 end
